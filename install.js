@@ -12,5 +12,5 @@ const processOptions = {
 };
 execSync(`curl -O ${downloadUrl}`, processOptions);
 execSync('mkdir -p build', processOptions);
-execSync(`tar xzf ${path.join(__dirname, tarName)} -C ./build`, processOptions);
+execSync(`tar xzf ${path.join(__dirname, tarName).replace(/ /g, "\\ ")} -C ./build`, processOptions);
 execSync(`rm ${tarName}`, processOptions);
